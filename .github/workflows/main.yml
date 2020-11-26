@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: employy_api_workflow
+name: employee_api_workflow
 
 on: [push]
 
