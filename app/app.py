@@ -1,10 +1,11 @@
+import os
 from typing import Optional
 from json import JSONDecoder
 from fastapi import FastAPI
 from pymongo import MongoClient
 from bson.json_util import dumps
 
-client = MongoClient('127.0.0.1', 27017)
+client = MongoClient(os.environ.get("DB_HOST", 'localhost'), os.environ.get("DB_PORT", 27017))
 db = client.employees
 
 app = FastAPI()
