@@ -1,6 +1,6 @@
 # Employee_API
 
-[badge](https://github.com/Shelestov7/employee_api/workflows/employee_api_workflow/badge.svg)
+![badge](https://github.com/Shelestov7/employee_api/workflows/employee_api_workflow/badge.svg)
 
 ## Описание 
 API сервис для получения списка сотрудников по следующимм параметрам:
