@@ -1,4 +1,4 @@
-# employy_api
+# Employee_API
 
 [badge](https://github.com/Shelestov7/employy_api/workflows/employy_api_workflow/badge.svg)
 
