@@ -17,6 +17,6 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: deusgaudio/employees_api:latest
+          repository: deusgaudio/employees_api:v1
           tag_with_ref: true
   
