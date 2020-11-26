@@ -39,4 +39,3 @@ async def get(name: Optional[str] = None,
     res = dumps(employee.find(find_params))
     data = JSONDecoder().decode(res)
     return data
-

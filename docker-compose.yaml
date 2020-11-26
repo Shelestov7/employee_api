@@ -6,13 +6,10 @@ services:
     command: python app/main.py
     expose:
       - 8090
-    env_file:
-      - ./.env
     depends_on:
       - mongodb_container
     links:
       - mongodb_container
-
 
 
   mongodb_container:
@@ -28,3 +25,4 @@ services:
 
 
 volumes:
+  mongodb_data_container:
