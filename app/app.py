@@ -5,7 +5,8 @@ from fastapi import FastAPI
 from pymongo import MongoClient
 from bson.json_util import dumps
 
-client = MongoClient(os.environ.get("DB_HOST", 'localhost'), os.environ.get("DB_PORT", 27017))
+
+client = MongoClient(os.environ.get("DB_HOST", '127.0.0.1'), os.environ.get("DB_PORT", 27017))
 db = client.employees
 
 app = FastAPI()
@@ -37,6 +38,7 @@ async def get(name: Optional[str] = None,
         find_params["salary"] = salary
     if job_title is not None:
         find_params["job_title"] = job_title
-    res = dumps(employee.find(find_params))
-    data = JSONDecoder().decode(res)
-    return data
+    mongo_data = employee.find(find_params)
+    mongo_data = dumps(mongo_data)
+    json_data = JSONDecoder().decode(mongo_data)
+    return json_data
