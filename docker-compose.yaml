@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   web:
-    image: deusgaudio/employees_api:latest
+    image: deusgaudio/employees_api:main
     command: python app/main.py
     expose:
       - 8090
