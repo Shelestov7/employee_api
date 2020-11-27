@@ -5,7 +5,6 @@ from fastapi import FastAPI
 from pymongo import MongoClient
 from bson.json_util import dumps
 
-
 client = MongoClient(os.environ.get("DB_HOST", '127.0.0.1'), os.environ.get("DB_PORT", 27017))
 db = client.employees
 
