@@ -21,7 +21,7 @@ services:
       - 27017:27017
     volumes:
       - mongodb_data_container:/data/db
-    command: mongoimport -h 127.0.0.1 --port=27017 --type==json --file=employees.json --jsonArray
+    command: mongoimport -h 127.0.0.1 --port=27017 --type=json --file=employees.json --jsonArray
 
 
 volumes:
