@@ -3,25 +3,20 @@ version: '3.8'
 services:
   web:
     image: deusgaudio/employees_api:main
-    command: python app/main.py
-    expose:
-      - 8090
+    command: python3 app/main.py
+    ports:
+      - 8090:8090
     depends_on:
-      - mongodb_container
+      - mongodb
     links:
-      - mongodb_container
+      - mongodb
 
 
-  mongodb_container:
+  mongodb:
     image: mongo:latest
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: rootpassword
     ports:
       - 27017:27017
-    volumes:
-      - mongodb_data_container:/data/db
-    command: mongoimport -h 127.0.0.1 --port=27017 --type=json --file=employees.json --jsonArray
+    command: mongoimport -h mongodb --port=27017 --type=json --file=employees.json --jsonArray
 
 
 volumes:
