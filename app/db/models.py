@@ -1,7 +1,8 @@
+from datetime import datetime
 from typing import Optional
 from bson import ObjectId
 from pydantic import BaseModel, Field
-from pydantic.datetime_parse import datetime
+
 
 
 class PyObjectId(ObjectId):
@@ -27,7 +28,7 @@ class Employee(BaseModel):
     email: Optional[str] = None
     age: Optional[int] = None
     company: Optional[str] = None
-    join_date: Optional[str] = None
+    join_date: Optional[datetime] = None
     job_title: Optional[str] = None
     gender: Optional[str] = None
     salary: Optional[int] = None
