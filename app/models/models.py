@@ -4,8 +4,9 @@ from bson import ObjectId
 from pydantic import BaseModel, Field
 
 
-
 class PyObjectId(ObjectId):
+
+    validate = None
 
     @classmethod
     def __get_validators__(cls):
@@ -14,7 +15,7 @@ class PyObjectId(ObjectId):
     @classmethod
     def validate(cls, v):
         if not ObjectId.is_valid(v):
-            raise ValueError('Invalid objectid')
+            raise ValueError('Invalid objected')
         return ObjectId(v)
 
     @classmethod
@@ -23,7 +24,7 @@ class PyObjectId(ObjectId):
 
 
 class Employee(BaseModel):
-    id: Optional[PyObjectId]
+    id: Optional[PyObjectId] = Field(alias='_id', default=None)
     name: Optional[str] = None
     email: Optional[str] = None
     age: Optional[int] = None
@@ -34,6 +35,7 @@ class Employee(BaseModel):
     salary: Optional[int] = None
 
     class Config:
+        arbitrary_types_allowed = True
         json_encoders = {
             ObjectId: str
         }

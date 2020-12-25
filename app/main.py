@@ -1,7 +1,16 @@
-import uvicorn
+# import uvicorn
+#
+# if __name__ == "__main__":
+#     uvicorn.run("app:app", host="127.0.0.1", port=8090, reload=True)
+#
+#
+#
 
-if __name__ == "__main__":
-    uvicorn.run("app:app", host="127.0.0.1", port=8090, reload=True)
+class Array:
+    def __init__(self):
+        self.array = []
 
 
 
+array = [1, 2, 3]
+print(Array(**array))
