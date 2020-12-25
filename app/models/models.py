@@ -6,8 +6,6 @@ from pydantic import BaseModel, Field
 
 class PyObjectId(ObjectId):
 
-    validate = None
-
     @classmethod
     def __get_validators__(cls):
         yield cls.validate
