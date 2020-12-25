@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import Optional
 
 from fastapi import FastAPI
 
@@ -13,15 +13,6 @@ def read_root():
     return {"message": "Greetings!"}
 
 
-@app.get("/get_all/")
-async def list_users():
-    users = []
-    for user in db.employees.find():
-        users.append(Employee(**user))
-        print(users)
-    return {'users': users}
-
-
 @app.post("/get/")
 def get(employee: Optional[Employee]):
     find_params = {}
@@ -34,6 +25,3 @@ def get(employee: Optional[Employee]):
         employees.append(Employee(**employe))
     print(find_params)
     return {"employees": employees}
-
-# if key == "id":
-#     value = str(value)
